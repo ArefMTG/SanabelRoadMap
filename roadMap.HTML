@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fanyar Sabz Ayandeh | Road Map</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نقشه راه پروژه گلخانه هوشمند</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --brand-primary: #0d625c;
-            --brand-secondary: #1cb5e0;
-            --brand-accent: #f5a623;
-            --text-dark: #1f2933;
-            --text-muted: #64748b;
-            --bg-light: #f5f7fa;
-            --card-bg: #ffffff;
-            --border-radius: 18px;
+            --bg-dark: #081410;
+            --card-dark: #0f1f19;
+            --card-alt: #132820;
+            --accent: #27c078;
+            --accent-soft: rgba(39, 192, 120, 0.18);
+            --text-main: #f4fff7;
+            --text-muted: #c0d9c9;
+            --divider: rgba(39, 192, 120, 0.22);
+            --glow: rgba(29, 160, 98, 0.35);
         }
 
         * {
@@ -24,123 +27,171 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f8fbff, #eef5f2 55%, #fefefe);
-            color: var(--text-dark);
-            line-height: 1.6;
-            padding: 40px 0;
+            font-family: 'Vazirmatn', 'IRANSans', 'Tahoma', sans-serif;
+            background: radial-gradient(circle at top right, rgba(39, 192, 120, 0.18), transparent 55%),
+                        radial-gradient(circle at bottom left, rgba(19, 64, 44, 0.9), rgba(8, 20, 16, 0.98));
+            color: var(--text-main);
+            line-height: 1.8;
+            padding: 48px 20px 72px;
         }
 
-        .page {
+        .wrapper {
             max-width: 1100px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.85);
-            box-shadow: 0 30px 60px rgba(15, 39, 60, 0.1);
+            background: rgba(13, 33, 26, 0.86);
+            border: 1px solid rgba(39, 192, 120, 0.22);
             border-radius: 28px;
+            box-shadow: 0 30px 80px rgba(3, 8, 6, 0.6);
             overflow: hidden;
-            border: 1px solid rgba(12, 123, 110, 0.08);
+            backdrop-filter: blur(6px);
         }
 
         header {
-            background: linear-gradient(120deg, rgba(13, 98, 92, 0.95), rgba(28, 181, 224, 0.85));
-            color: #fff;
-            padding: 60px 70px;
+            padding: 64px 70px 48px;
             position: relative;
+            background: linear-gradient(135deg, rgba(15, 43, 32, 0.95), rgba(13, 33, 26, 0.92));
         }
 
-        header::after {
+        header::before {
             content: "";
             position: absolute;
-            top: -80px;
-            right: -120px;
-            width: 260px;
-            height: 260px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 50%;
-            filter: blur(0.5px);
+            inset: 0;
+            background: radial-gradient(circle at 15% 20%, rgba(39, 192, 120, 0.4), transparent 45%),
+                        radial-gradient(circle at 85% 10%, rgba(39, 192, 120, 0.25), transparent 60%);
+            z-index: 0;
+        }
+
+        header .content {
+            position: relative;
+            z-index: 1;
         }
 
         header h1 {
             font-size: 2.8rem;
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #dfffe9;
+            letter-spacing: 0.02em;
         }
 
         header p {
-            font-size: 1.05rem;
-            margin-top: 8px;
             max-width: 560px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
         }
 
-        .meta-grid {
+        .meta-section {
+            margin-top: 40px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 18px;
-            margin-top: 34px;
         }
 
         .meta-card {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 16px;
+            background: var(--card-dark);
+            border-radius: 18px;
             padding: 18px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(6px);
+            border: 1px solid var(--divider);
+            box-shadow: 0 10px 30px rgba(8, 20, 16, 0.5);
+            position: relative;
+            overflow: hidden;
         }
 
-        .meta-card span {
-            display: inline-block;
-            font-size: 0.8rem;
-            letter-spacing: 1.4px;
+        .meta-card::after {
+            content: "";
+            position: absolute;
+            inset-inline-end: -40px;
+            inset-block-start: -60px;
+            width: 120px;
+            height: 120px;
+            background: var(--accent-soft);
+            transform: rotate(35deg);
+            border-radius: 32px;
+        }
+
+        .meta-label {
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            opacity: 0.8;
+            color: rgba(223, 255, 233, 0.6);
         }
 
-        .meta-card h3 {
-            margin-top: 12px;
+        .meta-value {
+            margin-top: 14px;
             font-size: 1.3rem;
-            font-weight: 500;
+            font-weight: 600;
+            color: #ffffff;
         }
 
         main {
-            padding: 50px 70px 70px;
-            background: var(--bg-light);
-        }
-
-        .section-title {
-            font-size: 1.9rem;
-            font-weight: 600;
-            margin-bottom: 24px;
-            position: relative;
-            padding-left: 18px;
-        }
-
-        .section-title::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 8px;
-            width: 6px;
-            height: 32px;
-            background: linear-gradient(180deg, var(--brand-primary), var(--brand-secondary));
-            border-radius: 4px;
-        }
-
-        .section {
-            margin-bottom: 50px;
-        }
-
-        .architecture-cards {
+            padding: 56px 70px 64px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 60px;
+            background: linear-gradient(180deg, rgba(15, 43, 32, 0.92), rgba(8, 20, 16, 0.96));
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .section-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            background: rgba(39, 192, 120, 0.18);
+            box-shadow: inset 0 0 0 1px var(--divider);
+        }
+
+        .section-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--accent);
+        }
+
+        .date-grid {
+            display: grid;
+            gap: 22px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        .date-card {
+            background: var(--card-alt);
+            border-radius: 22px;
+            padding: 26px 24px;
+            border: 1px solid var(--divider);
+            box-shadow: 0 16px 40px rgba(4, 12, 9, 0.65);
+            position: relative;
+        }
+
+        .date-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: #eafff3;
+        }
+
+        .date-card p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+        }
+
+        .architecture {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 24px;
         }
 
         .architecture-card {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 26px;
-            box-shadow: 0 20px 40px rgba(14, 38, 58, 0.08);
-            border: 1px solid rgba(13, 98, 92, 0.08);
+            background: var(--card-dark);
+            border-radius: 24px;
+            padding: 28px 26px 32px;
+            border: 1px solid var(--divider);
+            box-shadow: 0 18px 50px rgba(5, 14, 11, 0.7);
             position: relative;
             overflow: hidden;
         }
@@ -148,342 +199,304 @@
         .architecture-card::before {
             content: "";
             position: absolute;
-            top: -110px;
-            right: -60px;
-            width: 200px;
-            height: 200px;
-            background: rgba(28, 181, 224, 0.12);
+            inset-inline-start: -40px;
+            inset-block-start: -40px;
+            width: 140px;
+            height: 140px;
+            background: var(--accent-soft);
             border-radius: 50%;
         }
 
-        .architecture-card h4 {
+        .architecture-card svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--accent);
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .architecture-card h3 {
+            position: relative;
+            z-index: 1;
             font-size: 1.3rem;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .architecture-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .architecture-card ul {
-            margin-top: 16px;
-            list-style: none;
-        }
-
-        .architecture-card ul li {
-            margin-bottom: 10px;
-            color: var(--text-dark);
-            font-size: 0.95rem;
-            padding-left: 24px;
-            position: relative;
-        }
-
-        .architecture-card ul li::before {
-            content: '\2713';
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: var(--brand-accent);
-        }
-
-        .timeline {
-            position: relative;
-            margin-top: 30px;
-            padding-left: 10px;
-        }
-
-        .timeline::before {
-            content: "";
-            position: absolute;
-            left: 30px;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(180deg, var(--brand-primary), var(--brand-secondary));
-            border-radius: 3px;
-        }
-
-        .timeline-item {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 34px;
-            position: relative;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--card-bg);
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 12px 26px rgba(12, 123, 110, 0.18);
-            border: 1px solid rgba(13, 98, 92, 0.1);
-            position: relative;
-        }
-
-        .timeline-icon::after {
-            content: "";
-            position: absolute;
-            left: 28px;
-            top: 60px;
-            width: 3px;
-            height: calc(100% + 10px);
-            background: rgba(12, 123, 110, 0.15);
-        }
-
-        .timeline-item:last-child .timeline-icon::after {
-            display: none;
-        }
-
-        .timeline-icon span {
-            font-size: 1.8rem;
-            color: var(--brand-primary);
-        }
-
-        .timeline-content {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 24px 28px;
-            box-shadow: 0 20px 40px rgba(18, 75, 77, 0.1);
-            border: 1px solid rgba(13, 98, 92, 0.08);
-            flex: 1;
-        }
-
-        .timeline-content h5 {
-            font-size: 1.2rem;
-            margin-bottom: 6px;
-            color: var(--brand-primary);
-        }
-
-        .timeline-content span {
-            display: block;
-            font-size: 0.9rem;
-            color: var(--text-muted);
             margin-bottom: 12px;
         }
 
-        .timeline-content ul {
-            list-style: none;
-        }
-
-        .timeline-content ul li {
-            margin-bottom: 8px;
-            padding-left: 18px;
+        .architecture-card p {
             position: relative;
-            color: var(--text-dark);
+            z-index: 1;
+            color: var(--text-muted);
+            font-size: 0.98rem;
         }
 
-        .timeline-content ul li::before {
-            content: '\2022';
-            position: absolute;
-            left: 0;
-            color: var(--brand-accent);
+        .timeline {
+            display: grid;
+            gap: 22px;
         }
 
-        .months-section {
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: 0 24px 44px rgba(15, 63, 68, 0.12);
-            border: 1px solid rgba(13, 98, 92, 0.08);
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            gap: 22px;
+            align-items: start;
+            position: relative;
         }
 
-        .months-section h4 {
-            font-size: 1.3rem;
-            margin-bottom: 16px;
+        .timeline-marker {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            font-weight: 600;
         }
 
-        .months-section p {
+        .timeline-marker::before {
+            content: "";
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 20px var(--glow);
+        }
+
+        .timeline-marker::after {
+            content: "";
+            width: 3px;
+            flex: 1;
+            background: linear-gradient(180deg, var(--accent), transparent);
+        }
+
+        .timeline-card {
+            background: var(--card-alt);
+            border-radius: 20px;
+            padding: 24px 26px;
+            border: 1px solid var(--divider);
+            box-shadow: 0 18px 38px rgba(4, 12, 9, 0.6);
+        }
+
+        .timeline-card h4 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            color: #e3ffe9;
+        }
+
+        .timeline-card ul {
+            list-style: none;
+            display: grid;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.97rem;
+        }
+
+        .timeline-card ul li::before {
+            content: "•";
+            margin-inline-start: 8px;
+            color: var(--accent);
+        }
+
+        .months-note {
+            margin-top: 12px;
+            padding: 24px 28px;
+            background: rgba(24, 54, 42, 0.85);
+            border-radius: 22px;
+            border: 1px solid var(--divider);
+            box-shadow: 0 12px 32px rgba(3, 9, 7, 0.55);
+            color: var(--text-muted);
+        }
+
+        .months-note strong {
+            color: #ebffee;
+        }
+
+        footer {
+            padding: 32px 70px 48px;
+            background: rgba(10, 24, 19, 0.94);
+            border-top: 1px solid var(--divider);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        footer p {
             color: var(--text-muted);
             font-size: 0.95rem;
         }
 
-        .footer-note {
-            margin-top: 50px;
-            font-size: 0.92rem;
-            color: var(--text-muted);
-            text-align: center;
+        footer span {
+            color: #bfffd8;
+            font-weight: 500;
         }
 
         @media (max-width: 768px) {
-            header, main {
-                padding: 40px 24px;
+            header,
+            main,
+            footer {
+                padding-inline: 28px;
             }
 
             header h1 {
                 font-size: 2.2rem;
             }
 
-            .timeline {
-                padding-left: 0;
-            }
-
-            .timeline::before {
-                left: 20px;
-            }
-
             .timeline-item {
-                gap: 20px;
+                grid-template-columns: 1fr;
             }
 
-            .timeline-icon {
-                width: 54px;
-                height: 54px;
-                border-radius: 16px;
+            .timeline-marker {
+                flex-direction: row;
+                justify-content: flex-start;
             }
 
-            .timeline-icon::after {
-                left: 25px;
+            .timeline-marker::after {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <div class="page">
+    <div class="wrapper">
         <header>
-            <h1>Road Map</h1>
-            <p>
-                Professional development roadmap for <strong>Fanyar Sabz Ayandeh</strong>, detailing the strategy and delivery milestones of the smart greenhouse automation platform.
-            </p>
-            <div class="meta-grid">
-                <div class="meta-card">
-                    <span>Project Start Date</span>
-                    <h3>17-08-1404</h3>
-                </div>
-                <div class="meta-card">
-                    <span>First Deadline</span>
-                    <h3>+ 1 Month</h3>
-                </div>
-                <div class="meta-card">
-                    <span>Second Deadline</span>
-                    <h3>+ 2 Months</h3>
-                </div>
-                <div class="meta-card">
-                    <span>Third Deadline</span>
-                    <h3>+ 3 Months</h3>
+            <div class="content">
+                <h1>نقشه راه سامانه هوشمند گلخانه «فنیار سبز آینده»</h1>
+                <p>این ارائه تصویری از برنامه زمانی، معماری فنی و نقاط عطف پروژه اتوماسیون گلخانه است تا مسیر همکاری و تحویل نسخه‌های قابل ارائه برای کارفرما به‌صورت شفاف و حرفه‌ای نمایش داده شود.</p>
+                <div class="meta-section">
+                    <div class="meta-card">
+                        <span class="meta-label">آغاز پروژه</span>
+                        <div class="meta-value">۱۷-۰۸-۱۴۰۴</div>
+                    </div>
+                    <div class="meta-card">
+                        <span class="meta-label">مهلت اول</span>
+                        <div class="meta-value">یک ماه پس از آغاز</div>
+                    </div>
+                    <div class="meta-card">
+                        <span class="meta-label">مهلت دوم</span>
+                        <div class="meta-value">دو ماه پس از آغاز</div>
+                    </div>
+                    <div class="meta-card">
+                        <span class="meta-label">مهلت سوم</span>
+                        <div class="meta-value">سه ماه پس از آغاز</div>
+                    </div>
                 </div>
             </div>
         </header>
-
         <main>
-            <section class="section">
-                <h2 class="section-title">Final Strategy &amp; Architecture</h2>
-                <div class="architecture-cards">
-                    <div class="architecture-card">
-                        <h4>API-Driven Platform</h4>
-                        <p>The entire solution is powered by Django Rest Framework (DRF), enabling secure, scalable, and future-ready integrations across greenhouse devices and user interfaces.</p>
-                        <ul>
-                            <li>Clean separation between presentation and control logic</li>
-                            <li>Supports external integrations and mobile clients</li>
-                            <li>Optimized for performance and reliability</li>
-                        </ul>
+            <section>
+                <h2>
+                    <span class="section-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c-2.8 0-5 2.2-5 5 0 2 1.2 3.7 3 4.5V21l2-1 2 1v-9.5c1.8-.8 3-2.5 3-4.5 0-2.8-2.2-5-5-5zm0 2c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3z"/></svg>
+                    </span>
+                    زمان‌بندی کلان پروژه
+                </h2>
+                <div class="date-grid">
+                    <div class="date-card">
+                        <h3>شروع رسمی</h3>
+                        <p>فعال‌سازی تیم‌ها و آماده‌سازی محیط‌های توسعه در تاریخ ۱۷ مرداد ۱۴۰۴ با تمرکز بر برنامه‌ریزی دقیق و تعریف خروجی‌های هر مرحله.</p>
                     </div>
-                    <div class="architecture-card">
-                        <h4>Panel App</h4>
-                        <p>Responsible for rendering dashboards and analytical views, covering both administrator and grower panels with insight-driven UI components.</p>
-                        <ul>
-                            <li>Responsive templates for admin &amp; user experiences</li>
-                            <li>Data visualization and greenhouse analytics</li>
-                            <li>Modular components ready for iteration</li>
-                        </ul>
+                    <div class="date-card">
+                        <h3>نقطه تحویل اول</h3>
+                        <p>ارائه نسخه اولیه هسته احراز هویت و ساختار اصلی پروژه یک ماه پس از شروع برای تأیید کارفرما و کنترل کیفیت.</p>
                     </div>
-                    <div class="architecture-card">
-                        <h4>Core App</h4>
-                        <p>The automation backbone coordinating device connectivity, command execution, and real-time greenhouse telemetry.</p>
-                        <ul>
-                            <li>Secure device-server communication channels</li>
-                            <li>Event-driven command execution</li>
-                            <li>Resilient data capture and monitoring</li>
-                        </ul>
+                    <div class="date-card">
+                        <h3>نقطه تحویل دوم</h3>
+                        <p>تحویل نمونه قابل نمایش از پنل‌ها و ارتباطات دستگاهی پس از دو ماه جهت ارزیابی تجربه کاربری و صحت یکپارچگی.</p>
                     </div>
-                    <div class="architecture-card">
-                        <h4>Reg_Log App</h4>
-                        <p>Authentication services ensuring controlled access via admin-managed registrations and JWT-based login mechanisms.</p>
-                        <ul>
-                            <li>Admin-only onboarding workflow</li>
-                            <li>JWT authentication for web &amp; API clients</li>
-                            <li>Security-first session and token policies</li>
-                        </ul>
+                    <div class="date-card">
+                        <h3>نقطه تحویل سوم</h3>
+                        <p>نمایش نسخه همگرا و آماده استقرار با تمامی ماژول‌ها در ماه سوم همراه با گزارش پیشرفت و برنامه بهینه‌سازی.</p>
                     </div>
                 </div>
             </section>
-
-            <section class="section">
-                <h2 class="section-title">Implementation Timeline</h2>
+            <section>
+                <h2>
+                    <span class="section-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v4h-2v6l-4 2-4-2V8H4V4zm10 4v5.17l2 .99 2-.99V8h-4zM4 12h6v2H4v-2zm0 4h10v2H4v-2z"/></svg>
+                    </span>
+                    راهبرد نهایی و معماری فنی
+                </h2>
+                <div class="architecture">
+                    <article class="architecture-card">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a5 5 0 0 1 5 5v2h1a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3h1V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v2h6V7a3 3 0 0 0-3-3zm7 7H5a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7a1 1 0 0 0-1-1z"/></svg>
+                        <h3>اپلیکیشن «پنل»</h3>
+                        <p>مسئول طراحی و رندر رابط‌های مدیریتی و کاربری، تحلیل داده‌های گلخانه و نمایش داشبوردهای پویا برای مدیر و اپراتور با تمرکز بر تجربه فارسی و واکنش‌گرا.</p>
+                    </article>
+                    <article class="architecture-card">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 2 7l10 5 8-4.1V17h2V7L12 2zm-8 9v6l8 4 8-4v-6l-8 4-8-4z"/></svg>
+                        <h3>اپلیکیشن «هسته»</h3>
+                        <p>مدیریت ارتباطات بین تجهیزات گلخانه و سرور، اجرای فرامین کاربر، پایش حسگرها و تضمین پایداری تبادل داده از طریق رابط‌های برنامه‌نویسی مبتنی بر جنگو.</p>
+                    </article>
+                    <article class="architecture-card">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a5 5 0 0 1 5 5v1h1a3 3 0 0 1 3 3v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-9a3 3 0 0 1 3-3h1V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v1h6V7a3 3 0 0 0-3-3zm-5 6a1 1 0 0 0-1 1v9h12v-9a1 1 0 0 0-1-1H7zm3 3h4v2h-4v-2z"/></svg>
+                        <h3>اپلیکیشن «ثبت‌نام و ورود»</h3>
+                        <p>پیاده‌سازی کامل احراز هویت مبتنی بر توکن، مدیریت ثبت‌نام توسط مدیر و ورود کاربران با جِی‌دبلیوتی، کنترل سطوح دسترسی و ثبت رخدادهای امنیتی.</p>
+                    </article>
+                </div>
+            </section>
+            <section>
+                <h2>
+                    <span class="section-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h6l2 3h10a1 1 0 0 1 .9 1.45l-3 6A2 2 0 0 1 17.1 17H9l-2 3H3l2-4H3V5zm4 2v6h1.38l2-3.5L8.38 7H7z"/></svg>
+                    </span>
+                    برنامه اجرایی هفتگی و ماهانه
+                </h2>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-icon"><span>1</span></div>
-                        <div class="timeline-content">
-                            <h5>Week 1 &mdash; Foundations</h5>
-                            <span>Establish the project core and authentication layer.</span>
+                        <div class="timeline-marker">هفته اول</div>
+                        <div class="timeline-card">
+                            <h4>پایه‌گذاری پروژه و احراز هویت</h4>
                             <ul>
-                                <li>Set up project skeleton, repositories, and CI/CD baseline</li>
-                                <li>Develop <strong>reg_log</strong> app with JWT authentication</li>
-                                <li>Document API contracts and security flows</li>
+                                <li>ایجاد اسکلت اصلی مبتنی بر فریم‌ورک جنگو رست و تنظیم محیط‌های توسعه.</li>
+                                <li>طراحی پایگاه داده اولیه، مدل‌های کاربری و روند احراز هویت.</li>
+                                <li>پیاده‌سازی سرویس ثبت‌نام مدیر و ورود کاربران با توکن جِی‌دبلیوتی.</li>
                             </ul>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-icon"><span>2</span></div>
-                        <div class="timeline-content">
-                            <h5>Week 2 &mdash; Connectivity &amp; Layouts</h5>
-                            <span>Deliver visual foundations and greenhouse device linkages.</span>
+                        <div class="timeline-marker">هفته دوم</div>
+                        <div class="timeline-card">
+                            <h4>رابط‌های پایه و اتصال تجهیزات</h4>
                             <ul>
-                                <li>Create base templates and layout systems for panels</li>
-                                <li>Implement Core app services for device communication</li>
-                                <li>Begin data collection and telemetry storage pipeline</li>
+                                <li>طراحی قالب‌های ابتدایی پنل مدیریتی و کاربری با زبان فارسی.</li>
+                                <li>ایجاد لایه‌های ارتباطی برای دریافت داده حسگرها و دستورهای کنترل.</li>
+                                <li>آزمایش گردش اطلاعات بین سرور و دستگاه‌ها با داده‌های نمونه.</li>
                             </ul>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-icon"><span>3</span></div>
-                        <div class="timeline-content">
-                            <h5>Week 3 &mdash; Advanced Panels</h5>
-                            <span>Enhance user experiences for both administrators and growers.</span>
+                        <div class="timeline-marker">هفته سوم</div>
+                        <div class="timeline-card">
+                            <h4>تکمیل پنل‌ها و تحلیل داده</h4>
                             <ul>
-                                <li>Develop detailed dashboards with actionable insights</li>
-                                <li>Introduce role-based navigation and permissions</li>
-                                <li>Refine UI with analytics widgets and reporting tools</li>
+                                <li>توسعه صفحات تفصیلی داشبورد مدیر با نمودارها و گزارش‌های کلیدی.</li>
+                                <li>ایجاد جریان‌های کاری اپراتور برای کنترل لحظه‌ای شرایط گلخانه.</li>
+                                <li>پیاده‌سازی اعلان‌ها و گزارش‌های رویداد برای افزایش شفافیت.</li>
                             </ul>
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-icon"><span>4</span></div>
-                        <div class="timeline-content">
-                            <h5>Week 4 &mdash; Integration Milestone</h5>
-                            <span>Unify modules and showcase the first working product version.</span>
+                        <div class="timeline-marker">هفته چهارم</div>
+                        <div class="timeline-card">
+                            <h4>همگرایی ماژول‌ها و ارائه نسخه اولیه</h4>
                             <ul>
-                                <li>Connect Panel, Core, and Reg_Log modules</li>
-                                <li>Perform integration testing and quality reviews</li>
-                                <li>Prepare demonstration build for stakeholder review</li>
+                                <li>یکپارچه‌سازی سه اپلیکیشن و آزمون فرایندهای سراسری.</li>
+                                <li>آماده‌سازی سناریوهای نمایشی برای ارائه به کارفرما.</li>
+                                <li>گردآوری بازخوردها و برنامه‌ریزی برای بهینه‌سازی دوره بعد.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <section class="section">
-                <h2 class="section-title">Months 2–3 Outlook</h2>
-                <div class="months-section">
-                    <h4>Sustained Innovation &amp; Delivery</h4>
-                    <p>
-                        Following the first month, the team will continue progressive enhancements across all modules, focusing on performance tuning, analytics depth, and automation intelligence. Feedback cycles with <strong>Fanyar Sabz Ayandeh</strong> stakeholders will steer prioritization, ensuring the platform evolves into a robust, production-ready greenhouse automation solution.
-                    </p>
+                <div class="months-note">
+                    <strong>ماه‌های دوم و سوم:</strong>
+                    تمرکز بر توسعه مداوم، بهینه‌سازی عملکرد سامانه، افزودن قابلیت‌های تحلیلی پیشرفته، ارتقای امنیت و ایجاد داشبوردهای اختصاصی براساس نیازهای در حال تغییر کارفرما.
                 </div>
             </section>
-
-            <p class="footer-note">Fanyar Sabz Ayandeh &middot; Smart Greenhouse Automation Roadmap &middot; Prepared for strategic partner review</p>
         </main>
+        <footer>
+            <p>این سند برای ارائه رسمی به ذینفعان پروژه آماده شده است و مسیر همکاری با تیم «فنیار سبز آینده» را شفاف می‌سازد.</p>
+            <span>همراه شما برای هوشمندسازی گلخانه‌ها با رویکرد پایدار و نوآورانه.</span>
+        </footer>
     </div>
 </body>
 </html>
