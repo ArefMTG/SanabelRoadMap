@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نقشه راه پروژه گلخانه هوشمند</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --page-background: #f5f6f7;
+            --page-layer-one: radial-gradient(circle at 10% 15%, rgba(124, 212, 165, 0.35), transparent 55%),
+                               radial-gradient(circle at 82% 20%, rgba(92, 206, 158, 0.3), transparent 60%),
+                               radial-gradient(circle at 50% 90%, rgba(42, 155, 104, 0.22), transparent 55%);
+            --page-layer-two: repeating-radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.16) 0 12px, transparent 12px 32px),
+                               repeating-linear-gradient(135deg, rgba(31, 153, 96, 0.05) 0 18px, transparent 18px 38px);
+
+            --wrapper-background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(246, 255, 250, 0.95));
+            --wrapper-border: rgba(31, 153, 96, 0.08);
+            --wrapper-shadow: 0 28px 80px rgba(16, 56, 34, 0.18);
+
+            --header-background: linear-gradient(135deg, #0d7f4e, #15b874);
+            --header-before-layer: radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.28), transparent 48%),
+                                   radial-gradient(circle at 80% 12%, rgba(9, 91, 55, 0.35), transparent 62%),
+                                   linear-gradient(200deg, rgba(255, 255, 255, 0.25), transparent 60%);
+            --header-after-layer: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(9, 91, 55, 0.12));
+
+            --meta-card-background: rgba(255, 255, 255, 0.1);
+            --meta-card-border: rgba(255, 255, 255, 0.26);
+            --meta-card-shadow: 0 20px 38px rgba(16, 56, 34, 0.16);
+            --meta-card-highlight: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(31, 153, 96, 0.15));
+
+            --card-light: rgba(255, 255, 255, 0.94);
+            --card-alt: rgba(248, 255, 251, 0.92);
+            --card-border: rgba(31, 153, 96, 0.16);
+            --card-shadow: 0 22px 45px rgba(16, 56, 34, 0.16);
+
+            --architecture-background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(236, 252, 244, 0.92));
+            --architecture-border: rgba(31, 153, 96, 0.18);
+            --architecture-shadow: 0 24px 48px rgba(16, 56, 34, 0.18);
+            --architecture-badge-background: linear-gradient(150deg, rgba(31, 153, 96, 0.2), rgba(255, 255, 255, 0.4));
+
+            --section-icon-background: linear-gradient(150deg, rgba(31, 153, 96, 0.22), rgba(31, 153, 96, 0.08));
+            --icon-box-shadow: inset 0 0 0 1px rgba(31, 153, 96, 0.25), 0 16px 32px rgba(16, 56, 34, 0.18);
+
+            --main-background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(228, 246, 236, 0.94) 100%);
+
+            --timeline-connector: linear-gradient(180deg, rgba(34, 174, 106, 0.6), rgba(34, 174, 106, 0));
+            --timeline-tail: linear-gradient(180deg, rgba(34, 174, 106, 0.4), rgba(34, 174, 106, 0.08));
+            --marker-background: rgba(255, 255, 255, 0.94);
+            --marker-border: rgba(34, 174, 106, 0.35);
+            --marker-shadow: 0 16px 30px rgba(34, 174, 106, 0.18);
+            --timeline-border: rgba(31, 153, 96, 0.18);
+            --timeline-shadow: 0 24px 46px rgba(16, 56, 34, 0.18);
+
+            --months-background: linear-gradient(160deg, rgba(210, 245, 226, 0.8), rgba(235, 252, 242, 0.9));
+            --months-border: rgba(31, 153, 96, 0.18);
+            --months-shadow: 0 20px 38px rgba(16, 56, 34, 0.16);
+
+            --footer-background: linear-gradient(150deg, rgba(234, 249, 239, 0.95), rgba(206, 238, 221, 0.92));
+            --footer-border: rgba(31, 153, 96, 0.12);
+            --footer-text: #3e6a53;
+
+            --accent: #1aa364;
+            --accent-soft: rgba(26, 163, 100, 0.2);
+            --accent-strong: #0c7c4b;
+            --text-main: #103822;
+            --text-muted: #3e6a53;
+            --meta-label-color: rgba(255, 255, 255, 0.7);
+            --meta-value-color: #ffffff;
+            --header-title-color: #ffffff;
+            --header-text-color: rgba(255, 255, 255, 0.82);
+
+            --hover-shadow: rgba(31, 153, 96, 0.28);
+            --hover-border: rgba(31, 153, 96, 0.48);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Vazirmatn', 'IRANSans', 'Tahoma', sans-serif;
+            background: #f5f6f7;
+            color: var(--text-main);
+            transition: background 0.5s ease;
+        }
+
+        body:has(#theme-switch:checked) {
+            background: #03150f;
+        }
+
+        .page {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .canvas {
+            min-height: 100vh;
+            padding: 48px 20px 72px;
+            background: var(--page-background);
+            color: var(--text-main);
+            line-height: 1.8;
+            position: relative;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 32px;
+        }
+
+        .canvas::before,
+        .canvas::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .canvas::before {
+            background: var(--page-layer-one);
+        }
+
+        .canvas::after {
+            background: var(--page-layer-two);
+            opacity: 0.7;
+            filter: blur(0.4px);
+        }
+
+        .canvas > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .theme-switch {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .theme-toggle {
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, rgba(26, 163, 100, 0.16), rgba(26, 163, 100, 0.42));
+            border: 1px solid rgba(26, 163, 100, 0.35);
+            color: var(--accent-strong);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 18px 32px rgba(26, 163, 100, 0.18);
+            transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+            backdrop-filter: blur(14px);
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 24px 40px rgba(26, 163, 100, 0.24);
+        }
+
+        .toggle-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.3s ease, color 0.3s ease;
+        }
+
+        .toggle-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .toggle-icon.sun {
+            color: #f2b544;
+            opacity: 0.9;
+        }
+
+        .toggle-icon.moon {
+            color: #2fd39a;
+            opacity: 0.4;
+        }
+
+        .toggle-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .toggle-text-dark {
+            display: none;
+        }
+
+        #theme-switch:checked ~ .canvas .theme-toggle {
+            background: linear-gradient(135deg, rgba(16, 96, 73, 0.85), rgba(40, 190, 140, 0.55));
+            border-color: rgba(101, 248, 190, 0.52);
+            color: #e5fff6;
+            box-shadow: 0 28px 56px rgba(4, 34, 24, 0.68);
+        }
+
+        #theme-switch:checked ~ .canvas .theme-toggle:hover {
+            box-shadow: 0 34px 64px rgba(4, 34, 24, 0.78);
+        }
+
+        #theme-switch:checked ~ .canvas .toggle-icon.sun {
+            opacity: 0.4;
+        }
+
+        #theme-switch:checked ~ .canvas .toggle-icon.moon {
+            opacity: 0.95;
+            color: #91ffd2;
+        }
+
+        #theme-switch:checked ~ .canvas .toggle-text-light {
+            display: none;
+        }
+
+        #theme-switch:checked ~ .canvas .toggle-text-dark {
+            display: inline;
+        }
+
+        #theme-switch:checked ~ .canvas {
+            --page-background: linear-gradient(180deg, #03150f 0%, #041c14 100%);
+            --page-layer-one: radial-gradient(circle at 15% 20%, rgba(46, 201, 152, 0.24), transparent 55%),
+                               radial-gradient(circle at 80% 12%, rgba(24, 120, 92, 0.35), transparent 62%),
+                               radial-gradient(circle at 50% 88%, rgba(12, 68, 49, 0.42), transparent 60%);
+            --page-layer-two: repeating-linear-gradient(140deg, rgba(41, 208, 143, 0.06) 0 26px, transparent 26px 56px),
+                               repeating-radial-gradient(circle at 10% 80%, rgba(8, 32, 24, 0.38) 0 18px, transparent 18px 48px);
+
+            --wrapper-background: linear-gradient(180deg, rgba(9, 32, 25, 0.94), rgba(5, 20, 16, 0.98));
+            --wrapper-border: rgba(76, 226, 165, 0.24);
+            --wrapper-shadow: 0 48px 120px rgba(2, 12, 8, 0.85);
+
+            --header-background: linear-gradient(135deg, rgba(7, 71, 54, 0.96), rgba(36, 174, 126, 0.85));
+            --header-before-layer: radial-gradient(circle at 25% 25%, rgba(111, 255, 207, 0.22), transparent 52%),
+                                   radial-gradient(circle at 80% 15%, rgba(10, 99, 72, 0.5), transparent 70%),
+                                   linear-gradient(200deg, rgba(30, 198, 140, 0.35), transparent 62%);
+            --header-after-layer: linear-gradient(135deg, rgba(40, 200, 146, 0.42), rgba(3, 30, 21, 0.82));
+            --header-title-color: #eafff4;
+            --header-text-color: rgba(209, 248, 235, 0.85);
+
+            --meta-card-background: rgba(7, 48, 35, 0.58);
+            --meta-card-border: rgba(101, 248, 190, 0.38);
+            --meta-card-shadow: 0 38px 72px rgba(2, 12, 8, 0.72);
+            --meta-card-highlight: linear-gradient(140deg, rgba(54, 215, 153, 0.38), rgba(12, 49, 36, 0));
+            --meta-label-color: rgba(198, 247, 225, 0.82);
+            --meta-value-color: #f4fff9;
+
+            --card-light: rgba(8, 32, 24, 0.88);
+            --card-alt: rgba(6, 25, 19, 0.82);
+            --card-border: rgba(76, 226, 165, 0.32);
+            --card-shadow: 0 36px 68px rgba(0, 0, 0, 0.6);
+
+            --section-icon-background: linear-gradient(150deg, rgba(47, 211, 154, 0.28), rgba(8, 52, 38, 0.62));
+            --icon-box-shadow: inset 0 0 0 1px rgba(79, 231, 172, 0.38), 0 18px 34px rgba(3, 26, 19, 0.7);
+
+            --architecture-background: linear-gradient(180deg, rgba(12, 52, 41, 0.9), rgba(6, 24, 19, 0.94));
+            --architecture-border: rgba(82, 230, 169, 0.34);
+            --architecture-shadow: 0 38px 80px rgba(0, 0, 0, 0.65);
+            --architecture-badge-background: linear-gradient(150deg, rgba(51, 213, 160, 0.35), rgba(8, 46, 33, 0.65));
+
+            --main-background: linear-gradient(180deg, rgba(6, 24, 19, 0.92) 0%, rgba(3, 16, 12, 0.96) 100%);
+
+            --timeline-connector: linear-gradient(180deg, rgba(76, 226, 165, 0.85), rgba(76, 226, 165, 0));
+            --timeline-tail: linear-gradient(180deg, rgba(76, 226, 165, 0.62), rgba(76, 226, 165, 0.08));
+            --marker-background: rgba(5, 23, 18, 0.88);
+            --marker-border: rgba(89, 236, 176, 0.48);
+            --marker-shadow: 0 26px 44px rgba(2, 18, 13, 0.72);
+            --timeline-border: rgba(82, 230, 169, 0.32);
+            --timeline-shadow: 0 36px 68px rgba(0, 0, 0, 0.58);
+
+            --months-background: linear-gradient(160deg, rgba(11, 50, 38, 0.92), rgba(5, 21, 16, 0.9));
+            --months-border: rgba(79, 231, 172, 0.32);
+            --months-shadow: 0 36px 70px rgba(0, 0, 0, 0.6);
+
+            --footer-background: linear-gradient(150deg, rgba(6, 24, 18, 0.94), rgba(12, 44, 32, 0.9));
+            --footer-border: rgba(76, 226, 165, 0.28);
+            --footer-text: rgba(205, 240, 226, 0.78);
+
+            --accent: #29d08f;
+            --accent-soft: rgba(41, 208, 143, 0.24);
+            --accent-strong: #18a774;
+            --text-main: #e2fdf3;
+            --text-muted: rgba(198, 237, 222, 0.78);
+            --hover-shadow: rgba(76, 226, 165, 0.42);
+            --hover-border: rgba(105, 250, 188, 0.6);
+        }
+
+        .wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--wrapper-background);
+            border: 1px solid var(--wrapper-border);
+            border-radius: 30px;
+            box-shadow: var(--wrapper-shadow);
+            overflow: hidden;
+            backdrop-filter: blur(22px);
+        }
+
+        header {
+            padding: 68px 74px 52px;
+            position: relative;
+            background: var(--header-background);
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--header-before-layer);
+            z-index: 0;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            inset: 18% 8% 6% 38%;
+            background: var(--header-after-layer);
+            border-radius: 42% 58% 48% 52% / 55% 40% 60% 45%;
+            filter: blur(40px);
+            z-index: 0;
+        }
+
+        header .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 2.9rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--header-title-color);
+            letter-spacing: 0.015em;
+        }
+
+        header p {
+            max-width: 560px;
+            color: var(--header-text-color);
+            font-size: 1.08rem;
+        }
+
+        .meta-section {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 18px;
+        }
+
+        .meta-card {
+            background: var(--meta-card-background);
+            border-radius: 20px;
+            padding: 20px 22px;
+            border: 1px solid var(--meta-card-border);
+            box-shadow: var(--meta-card-shadow);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .meta-card::after {
+            content: "";
+            position: absolute;
+            inset-inline-end: -40px;
+            inset-block-start: -60px;
+            width: 120px;
+            height: 120px;
+            background: var(--meta-card-highlight);
+            transform: rotate(32deg);
+            border-radius: 32px;
+        }
+
+        .meta-label {
+            font-size: 0.85rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--meta-label-color);
+        }
+
+        .meta-value {
+            margin-top: 14px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--meta-value-color);
+        }
+
+        main {
+            padding: 60px 74px 70px;
+            display: grid;
+            gap: 60px;
+            background: var(--main-background);
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .section-icon {
+            width: 54px;
+            height: 54px;
+            border-radius: 18px;
+            display: grid;
+            place-items: center;
+            background: var(--section-icon-background);
+            box-shadow: var(--icon-box-shadow);
+        }
+
+        .section-icon svg {
+            width: 26px;
+            height: 26px;
+            fill: var(--accent);
+        }
+
+        .date-grid {
+            display: grid;
+            gap: 22px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+
+        .date-card {
+            background: var(--card-light);
+            border-radius: 24px;
+            padding: 28px 26px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--card-shadow);
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .date-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .date-card p {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+        }
+
+        .architecture {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .architecture-card {
+            background: var(--architecture-background);
+            border-radius: 26px;
+            padding: 30px 28px 34px;
+            border: 1px solid var(--architecture-border);
+            box-shadow: var(--architecture-shadow);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .architecture-card::before {
+            content: "";
+            position: absolute;
+            inset-inline-start: -38px;
+            inset-block-start: -44px;
+            width: 160px;
+            height: 160px;
+            background: linear-gradient(160deg, rgba(31, 153, 96, 0.28), rgba(31, 153, 96, 0));
+            border-radius: 48% 52% 45% 55%;
+        }
+
+        .architecture-card svg {
+            width: 34px;
+            height: 34px;
+            fill: var(--accent);
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+            padding: 10px;
+            border-radius: 16px;
+            background: var(--architecture-badge-background);
+            box-shadow: inset 0 0 0 1px rgba(31, 153, 96, 0.3);
+        }
+
+        .architecture-card h3 {
+            position: relative;
+            z-index: 1;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .architecture-card p {
+            position: relative;
+            z-index: 1;
+            color: var(--text-muted);
+            font-size: 0.98rem;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 24px;
+            position: relative;
+        }
+
+        .timeline-item {
+            position: relative;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 26px;
+            align-items: start;
+        }
+
+        .timeline-item:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            inset-inline-start: 36px;
+            top: 44px;
+            height: calc(100% - 6px);
+            width: 3px;
+            background: var(--timeline-connector);
+            z-index: 0;
+        }
+
+        .timeline-marker {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--text-muted);
+            font-weight: 600;
+            padding-inline-start: 12px;
+        }
+
+        .timeline-marker::before {
+            content: "";
+            position: absolute;
+            inset-inline-start: 36px;
+            top: -24px;
+            height: 24px;
+            width: 3px;
+            background: var(--timeline-tail);
+            z-index: 0;
+        }
+
+        .timeline-item:first-child .timeline-marker::before {
+            display: none;
+        }
+
+        .marker-node {
+            position: relative;
+            z-index: 1;
+            min-width: 50px;
+            height: 32px;
+            border-radius: 20px;
+            display: grid;
+            place-items: center;
+            font-size: 1.08rem;
+            color: var(--accent);
+            background: var(--marker-background);
+            border: 1px solid var(--marker-border);
+            box-shadow: var(--marker-shadow);
+        }
+
+        .marker-label {
+            position: relative;
+            z-index: 1;
+            color: var(--text-main);
+            letter-spacing: 0.02em;
+        }
+
+        .timeline-card {
+            background: var(--card-light);
+            border-radius: 22px;
+            padding: 26px 28px;
+            border: 1px solid var(--timeline-border);
+            box-shadow: var(--timeline-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .timeline-card h4 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .timeline-card ul {
+            list-style: none;
+            display: grid;
+            gap: 8px;
+            color: var(--text-muted);
+            font-size: 0.97rem;
+        }
+
+        .timeline-card ul li::before {
+            content: "•";
+            margin-inline-start: 8px;
+            color: var(--accent);
+        }
+
+        .months-note {
+            margin-top: 12px;
+            padding: 26px 32px;
+            background: var(--months-background);
+            border-radius: 24px;
+            border: 1px solid var(--months-border);
+            box-shadow: var(--months-shadow);
+            color: var(--text-muted);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .months-note strong {
+            color: var(--text-main);
+        }
+
+        footer {
+            padding: 36px 74px 52px;
+            background: var(--footer-background);
+            border-top: 1px solid var(--footer-border);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        footer p {
+            color: var(--footer-text);
+            font-size: 0.95rem;
+        }
+
+        footer span {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .meta-card:hover,
+        .date-card:hover,
+        .architecture-card:hover,
+        .timeline-card:hover,
+        .months-note:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 28px 58px var(--hover-shadow);
+            border-color: var(--hover-border);
+        }
+
+        @media (max-width: 768px) {
+            header,
+            main,
+            footer {
+                padding-inline: 28px;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item:not(:last-child)::after {
+                inset-inline-start: 26px;
+                top: 38px;
+                height: calc(100% - 4px);
+            }
+
+            .timeline-marker {
+                padding-inline-start: 0;
+                gap: 12px;
+            }
+
+            .timeline-marker::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <input type="checkbox" id="theme-switch" class="theme-switch">
+        <div class="canvas">
+            <label for="theme-switch" class="theme-toggle">
+                <span class="toggle-icon sun" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M12 2a1 1 0 0 1 1 1v1h-2V3a1 1 0 0 1 1-1zm5.657 3.343 1.414-1.414 1.414 1.414-1.414 1.414zM21 11h2v2h-2a1 1 0 0 1 0-2zm-2.929 8.071 1.414 1.414-1.414 1.414-1.414-1.414zM12 18a6 6 0 1 1 6-6 6 6 0 0 1-6 6zm-8-7H2v2h2a1 1 0 0 1 0-2zm2.929-5.071L5.515 4.515 6.929 3.1l1.414 1.415zM12 20a1 1 0 0 1 1 1v2h-2v-2a1 1 0 0 1 1-1zm-5.657-3.343 1.414 1.414-1.414 1.414-1.414-1.414z"/></svg>
+                </span>
+                <span class="toggle-text toggle-text-light"></span>
+                <span class="toggle-text toggle-text-dark"></span>
+                <span class="toggle-icon moon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M12.74 2a9 9 0 0 0 0 18 9 9 0 0 0 8.74-6.72 7 7 0 1 1-8.1-9.78A8.96 8.96 0 0 0 12.74 2z"/></svg>
+                </span>
+            </label>
+            <div class="wrapper">
+        <header>
+            <div class="content">
+                <h1>نقشه راه سامانه هوشمند گلخانه «فن‌یار سبز آینده»</h1>
+                <p>این ارائه تصویری از برنامه زمانی، معماری فنی و نقاط عطف پروژه اتوماسیون گلخانه است تا مسیر همکاری و تحویل نسخه‌های قابل ارائه برای کارفرما به‌صورت شفاف و حرفه‌ای نمایش داده شود.</p>
+                <div class="meta-section">
+                    <div class="meta-card">
+                        <span class="meta-label">آغاز پروژه</span>
+                        <div class="meta-value">۱۴۰۴-۰۸-۱۷</div>
+                    </div>
+                    <div class="meta-card">
+                        <span class="meta-label">مهلت اول</span>
+                        <div class="meta-value">۱۴۰۴-۰۹-۱۷</div>
+                    </div>
+                    <div class="meta-card">
+                        <span class="meta-label">مهلت دوم</span>
+                        <div class="meta-value">۱۴۰۴-۱۰-۱۷</div>
+                    </div>
+                    <div class="meta-card">
+                        <span class="meta-label">مهلت سوم</span>
+                        <div class="meta-value">۱۴۰۴-۱۱-۱۷</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section>
+                <h2>
+                    <span class="section-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2a1 1 0 0 1 2 0v1h6V2a1 1 0 0 1 2 0v1h1a2 2 0 0 1 2 2v6.1a5.5 5.5 0 1 0-6.7 8.4H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1V2zm0 3H5v4h14V5h-2v1a1 1 0 0 1-2 0V5H9v1a1 1 0 0 1-2 0V5zm5 7a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zm0 2a1 1 0 0 0-1 1v1.59l1.52 1.52 1.41-1.41-.93-.93V15a1 1 0 0 0-1-1z"/><path d="M6.2 19.6c1.88-2.58 5.16-3.37 7.32-5.42-3 .33-5.73 1.58-7.32 3.83v1.59z"/></svg>
+                    </span>
+                    زمان‌بندی کلان پروژه
+                </h2>
+                <div class="date-grid">
+                    <div class="date-card">
+                        <h3>شروع رسمی</h3>
+                        <p>از تاریخ ۱۷ آبان ۱۴۰۴ پروژه آغاز می‌شود...</p>
+                    </div>
+                    <div class="date-card">
+                        <h3>نقطه تحویل اول</h3>
+                        <p>تحویل نمونه قابل نمایش از پنل‌ها و ارتباطات دستگاهی پس از یک ماه جهت ارزیابی تجربه کاربری و صحت یکپارچگی.</p>
+                    </div>
+                    <div class="date-card">
+                        <h3>نقطه تحویل دوم</h3>
+                        <p>نمایش نسخه همگرا و آماده استقرار با تمامی ماژول‌ها در ماه دوم همراه با گزارش پیشرفت و برنامه بهینه‌سازی.</p>
+                    </div>
+                    <div class="date-card">
+                        <h3>نقطه تحویل سوم</h3>
+                        <p>دیپلوی کامل پروژه، استقرار روی سرور و همینطور مباحث کامل امنیتی، توسعه و آپدیت.</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>
+                    <span class="section-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 3 8v13h6v-6h6v6h6V8l-9-6zm7 17h-2v-6H7v6H5V9.2L12 4l7 5.2V19z"/><path d="M12 9c-2.21 0-4 1.79-4 4h2a2 2 0 0 1 4 0h2c0-2.21-1.79-4-4-4zm-3 6c-1.66 0-3 1.34-3 3h2a1 1 0 0 1 2 0h2c0-1.66-1.34-3-3-3zm6 0a3 3 0 0 0-3 3h2a1 1 0 0 1 2 0h2c0-1.66-1.34-3-3-3z"/></svg>
+                    </span>
+                    معماری فنی
+                </h2>
+                <div class="architecture">
+                    <article class="architecture-card">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5.2l1.5 2.5H18v2H6v-2h1.7L9.2 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 2v10h16V5H4zm3 2h3v4H7V7zm5 0h5v2h-5V7zm0 3h5v2h-5v-2z"/></svg>
+                        <h3>ماژول «پنل»</h3>
+                        <p>مسئول طراحی و رندر رابط‌های مدیریتی و کاربری، تحلیل داده‌های گلخانه و نمایش داشبوردهای پویا برای مدیر و اپراتور با تمرکز بر تجربه واکنش‌گرا.</p>
+                    </article>
+                    <article class="architecture-card">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 6a3 3 0 1 1-2.24 5h-2.52a3 3 0 0 1-5.48 0H6.24A3 3 0 1 1 4 11a3 3 0 0 1 2.24 5h2.52a3 3 0 0 1 5.48 0h2.52A3 3 0 0 1 19 11zm0 2a1 1 0 1 0 .001 2.001A1 1 0 0 0 19 13zm-14 0a1 1 0 1 0 .001 2.001A1 1 0 0 0 5 13zm7 3a1 1 0 1 0 .001 2.001A1 1 0 0 0 12 16z"/></svg>
+                        <h3>ماژول «هسته»</h3>
+                        <p>مدیریت ارتباطات بین تجهیزات گلخانه و سرور، اجرای فرامین کاربر، پایش حسگرها و تضمین پایداری تبادل داده از طریق رابط‌های برنامه‌نویسی مبتنی بر جنگو.</p>
+                    </article>
+                    <article class="architecture-card">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.44 9.74 8 11 4.56-1.26 8-6 8-11V5l-8-3zm0 2.18L18 6.2V11c0 4.05-2.56 7.98-6 9.26C8.56 18.98 6 15.05 6 11V6.2l6-2.02z"/><path d="M12 8a3 3 0 0 0-1 5.83V17h2v-3.17A3 3 0 0 0 12 8z"/></svg>
+                        <h3>ماژول «ثبت‌نام و ورود»</h3>
+                        <p>پیاده‌سازی کامل احراز هویت مبتنی بر توکن، مدیریت ثبت‌نام توسط مدیر و ورود کاربران با JWT، کنترل سطوح دسترسی و ثبت رخدادهای امنیتی.</p>
+                    </article>
+                </div>
+            </section>
+            <section>
+                <h2>
+                    <span class="section-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4h-4V2h6v6h-2V5.41l-6.29 6.3-3-3L3 17.41 4.41 18.8l6.3-6.3 3 3L20 8.21V10h2V4z"/><path d="M10.5 4c-3.31 0-6 2.69-6 6H7c0-2.21 1.79-4 4-4 1.57 0 2.93.9 3.55 2.2l1.83-.78A5.99 5.99 0 0 0 10.5 4z"/><path d="M6 18c0-1.66 1.34-3 3-3 .74 0 1.4.27 1.92.7l1.34-1.48A4.96 4.96 0 0 0 9 13c-2.76 0-5 2.24-5 5h2z"/></svg>
+                    </span>
+                    برنامه اجرایی هفتگی و ماهانه
+                </h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="marker-node">۱</span>
+                            <span class="marker-label">هفته اول</span>
+                        </div>
+                        <div class="timeline-card">
+                            <h4>پایه‌گذاری پروژه و احراز هویت</h4>
+                            <ul>
+                                <li>ایجاد اسکلت اصلی و تنظیم محیط‌های توسعه.</li>
+                                <li>طراحی پایگاه داده اولیه، مدل‌های کاربری و روند احراز هویت.</li>
+                                <li>پیاده‌سازی سرویس ثبت‌نام توسط مدیر و ورود کاربران با توکن JWT.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="marker-node">۲</span>
+                            <span class="marker-label">هفته دوم</span>
+                        </div>
+                        <div class="timeline-card">
+                            <h4>رابط‌های پایه و اتصال تجهیزات</h4>
+                            <ul>
+                                <li>طراحی قالب‌های ابتدایی پنل مدیریتی و کاربری.</li>
+                                <li>ایجاد لایه‌های ارتباطی برای دریافت داده حسگرها و دستورهای کنترل.</li>
+                                <li>آزمایش گردش اطلاعات بین سرور و دستگاه‌ها با داده‌های نمونه.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="marker-node">۳</span>
+                            <span class="marker-label">هفته سوم</span>
+                        </div>
+                        <div class="timeline-card">
+                            <h4>تکمیل پنل‌ها و تحلیل داده</h4>
+                            <ul>
+                                <li>توسعه صفحات تفصیلی داشبورد مدیر و کاربر با نمودارها و گزارش‌های کلیدی.</li>
+                                <li>ایجاد جریان‌های کاری اپراتور برای کنترل لحظه‌ای شرایط گلخانه.</li>
+                                <li>پیاده‌سازی اعلان‌ها و گزارش‌های رویداد برای افزایش شفافیت.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span class="marker-node">۴</span>
+                            <span class="marker-label">هفته چهارم</span>
+                        </div>
+                        <div class="timeline-card">
+                            <h4>همگرایی ماژول‌ها و ارائه نسخه اولیه</h4>
+                            <ul>
+                                <li>یکپارچه‌سازی سه ماژول و آزمون فرایندهای سراسری.</li>
+                                <li>گردآوری بازخورد از نسخه اولیه و برنامه‌ریزی برای بهینه‌سازی و توسعه.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="months-note">
+                    <strong>ماه‌های دوم و سوم:</strong>
+                    تمرکز بر توسعه مداوم، بهینه‌سازی عملکرد سامانه، افزودن قابلیت‌های تحلیلی پیشرفته، ارتقای امنیت و ایجاد داشبوردهای اختصاصی براساس نیازهای کارفرما.
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>این سند برای ارائه رسمی به ذینفعان پروژه آماده شده است و مسیر همکاری با تیم «فن‌یار سبز آینده» را شفاف می‌سازد.</p>
+            <span>امیرمهدی ابراهیمی، مبین اعتمادی‌پویا، علیرضا متقی</span>
+        </footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
