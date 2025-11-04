@@ -9,15 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #081410;
-            --card-dark: #0f1f19;
-            --card-alt: #132820;
-            --accent: #27c078;
-            --accent-soft: rgba(39, 192, 120, 0.18);
-            --text-main: #f4fff7;
-            --text-muted: #c0d9c9;
-            --divider: rgba(39, 192, 120, 0.22);
-            --glow: rgba(29, 160, 98, 0.35);
+            --bg-light: #f5fbf8;
+            --bg-highlight: #e2f4eb;
+            --card-light: #ffffff;
+            --card-alt: #f2faf5;
+            --accent: #1fa463;
+            --accent-soft: rgba(31, 164, 99, 0.12);
+            --text-main: #133522;
+            --text-muted: #4a6b59;
+            --divider: rgba(31, 164, 99, 0.18);
+            --glow: rgba(31, 164, 99, 0.28);
+            --shadow: rgba(19, 53, 34, 0.1);
         }
 
         * {
@@ -28,8 +30,8 @@
 
         body {
             font-family: 'Vazirmatn', 'IRANSans', 'Tahoma', sans-serif;
-            background: radial-gradient(circle at top right, rgba(39, 192, 120, 0.18), transparent 55%),
-                        radial-gradient(circle at bottom left, rgba(19, 64, 44, 0.9), rgba(8, 20, 16, 0.98));
+            background: radial-gradient(circle at top left, rgba(201, 238, 220, 0.7), transparent 55%),
+                        radial-gradient(circle at bottom right, rgba(228, 245, 236, 0.85), var(--bg-light));
             color: var(--text-main);
             line-height: 1.8;
             padding: 48px 20px 72px;
@@ -38,26 +40,25 @@
         .wrapper {
             max-width: 1100px;
             margin: 0 auto;
-            background: rgba(13, 33, 26, 0.86);
-            border: 1px solid rgba(39, 192, 120, 0.22);
+            background: var(--card-light);
+            border: 1px solid rgba(19, 53, 34, 0.08);
             border-radius: 28px;
-            box-shadow: 0 30px 80px rgba(3, 8, 6, 0.6);
+            box-shadow: 0 25px 70px rgba(19, 53, 34, 0.12);
             overflow: hidden;
-            backdrop-filter: blur(6px);
         }
 
         header {
             padding: 64px 70px 48px;
             position: relative;
-            background: linear-gradient(135deg, rgba(15, 43, 32, 0.95), rgba(13, 33, 26, 0.92));
+            background: linear-gradient(135deg, #f1f9f4, #e6f5ec);
         }
 
         header::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 15% 20%, rgba(39, 192, 120, 0.4), transparent 45%),
-                        radial-gradient(circle at 85% 10%, rgba(39, 192, 120, 0.25), transparent 60%);
+            background: radial-gradient(circle at 15% 20%, rgba(31, 164, 99, 0.22), transparent 45%),
+                        radial-gradient(circle at 85% 10%, rgba(31, 164, 99, 0.15), transparent 60%);
             z-index: 0;
         }
 
@@ -70,7 +71,7 @@
             font-size: 2.8rem;
             font-weight: 700;
             margin-bottom: 12px;
-            color: #dfffe9;
+            color: #0f2f1d;
             letter-spacing: 0.02em;
         }
 
@@ -88,13 +89,14 @@
         }
 
         .meta-card {
-            background: var(--card-dark);
+            background: var(--card-alt);
             border-radius: 18px;
             padding: 18px 20px;
             border: 1px solid var(--divider);
-            box-shadow: 0 10px 30px rgba(8, 20, 16, 0.5);
+            box-shadow: 0 12px 24px var(--shadow);
             position: relative;
             overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .meta-card::after {
@@ -113,21 +115,21 @@
             font-size: 0.85rem;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: rgba(223, 255, 233, 0.6);
+            color: rgba(19, 53, 34, 0.6);
         }
 
         .meta-value {
             margin-top: 14px;
             font-size: 1.3rem;
             font-weight: 600;
-            color: #ffffff;
+            color: var(--text-main);
         }
 
         main {
             padding: 56px 70px 64px;
             display: grid;
             gap: 60px;
-            background: linear-gradient(180deg, rgba(15, 43, 32, 0.92), rgba(8, 20, 16, 0.96));
+            background: linear-gradient(180deg, #ffffff, #f5fbf8);
         }
 
         section h2 {
@@ -144,7 +146,7 @@
             border-radius: 14px;
             display: grid;
             place-items: center;
-            background: rgba(39, 192, 120, 0.18);
+            background: rgba(31, 164, 99, 0.12);
             box-shadow: inset 0 0 0 1px var(--divider);
         }
 
@@ -161,18 +163,19 @@
         }
 
         .date-card {
-            background: var(--card-alt);
+            background: var(--card-light);
             border-radius: 22px;
             padding: 26px 24px;
             border: 1px solid var(--divider);
-            box-shadow: 0 16px 40px rgba(4, 12, 9, 0.65);
+            box-shadow: 0 16px 32px var(--shadow);
             position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .date-card h3 {
             font-size: 1.25rem;
             margin-bottom: 12px;
-            color: #eafff3;
+            color: var(--text-main);
         }
 
         .date-card p {
@@ -187,13 +190,14 @@
         }
 
         .architecture-card {
-            background: var(--card-dark);
+            background: var(--card-alt);
             border-radius: 24px;
             padding: 28px 26px 32px;
             border: 1px solid var(--divider);
-            box-shadow: 0 18px 50px rgba(5, 14, 11, 0.7);
+            box-shadow: 0 18px 40px var(--shadow);
             position: relative;
             overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .architecture-card::before {
@@ -221,6 +225,7 @@
             z-index: 1;
             font-size: 1.3rem;
             margin-bottom: 12px;
+            color: var(--text-main);
         }
 
         .architecture-card p {
@@ -270,17 +275,18 @@
         }
 
         .timeline-card {
-            background: var(--card-alt);
+            background: var(--card-light);
             border-radius: 20px;
             padding: 24px 26px;
             border: 1px solid var(--divider);
-            box-shadow: 0 18px 38px rgba(4, 12, 9, 0.6);
+            box-shadow: 0 18px 34px var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .timeline-card h4 {
             font-size: 1.15rem;
             margin-bottom: 10px;
-            color: #e3ffe9;
+            color: var(--text-main);
         }
 
         .timeline-card ul {
@@ -300,21 +306,22 @@
         .months-note {
             margin-top: 12px;
             padding: 24px 28px;
-            background: rgba(24, 54, 42, 0.85);
+            background: var(--bg-highlight);
             border-radius: 22px;
             border: 1px solid var(--divider);
-            box-shadow: 0 12px 32px rgba(3, 9, 7, 0.55);
+            box-shadow: 0 12px 28px var(--shadow);
             color: var(--text-muted);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .months-note strong {
-            color: #ebffee;
+            color: var(--text-main);
         }
 
         footer {
             padding: 32px 70px 48px;
-            background: rgba(10, 24, 19, 0.94);
-            border-top: 1px solid var(--divider);
+            background: #f2faf5;
+            border-top: 1px solid rgba(19, 53, 34, 0.08);
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -326,8 +333,18 @@
         }
 
         footer span {
-            color: #bfffd8;
+            color: var(--accent);
             font-weight: 500;
+        }
+
+        .meta-card:hover,
+        .date-card:hover,
+        .architecture-card:hover,
+        .timeline-card:hover,
+        .months-note:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(31, 164, 99, 0.18);
+            border-color: rgba(31, 164, 99, 0.45);
         }
 
         @media (max-width: 768px) {
